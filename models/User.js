@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+// 스키마 생성
 const userSchema = mongoose.Schema({
   name: {
     type: String,
@@ -12,7 +13,11 @@ const userSchema = mongoose.Schema({
   },
   password: {
     type: String,
-    minlength: 50,
+    minlength: 5,
+  },
+  lastname: {
+    type: String,
+    maxlength: 50,
   },
   role: {
     type: Number,
@@ -27,6 +32,7 @@ const userSchema = mongoose.Schema({
   },
 });
 
+// 스키마를 모델로 감싸준다
 const User = mongoose.model("User", userSchema);
 
 module.exports = { User };
